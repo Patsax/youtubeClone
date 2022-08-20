@@ -1,4 +1,7 @@
 const playPauseBtn = document.querySelector(".play-pause-btn");
+const miniPlayerBtn = document.querySelector(".mini-player-btn");
+const theaterBtn = document.querySelector(".theater-btn");
+const fullScreenBtn = document.querySelector(".full-screen-btn");
 const videoContainer = document.querySelector(".video-container");
 const video = document.querySelector("video");
 
@@ -10,6 +13,19 @@ document.addEventListener("keydown", (e) => {
 			break;
 	}
 });
+
+// View Options
+miniPlayerBtn.addEventListener("click", toggleMiniPlayerMode);
+theaterBtn.addEventListener("click", toggleTheaterMode);
+fullScreenBtn.addEventListener("click", toggleFullScreenMode);
+
+function toggleMiniPlayerMode() {}
+
+function toggleTheaterMode() {
+    videoContainer.classList.toggle('theater')
+}
+
+function toggleFullScreenMode() {}
 
 // Play/Pause options
 playPauseBtn.addEventListener("click", togglePlay);
