@@ -49,13 +49,13 @@ document.addEventListener("keydown", (e) => {
 });
 
 // Play Speed
-speedBtn.addEventListener('click', changePlaybackSpeed)
+speedBtn.addEventListener("click", changePlaybackSpeed);
 
 function changePlaybackSpeed() {
-	let newPlaybackRate = video.playbackRate + .25
-	if (newPlaybackRate > 2) newPlaybackRate = .25
-	video.playbackRate = newPlaybackRate
-	speedBtn.textContent = `${newPlaybackRate}x`
+	let newPlaybackRate = video.playbackRate + 0.25;
+	if (newPlaybackRate > 2) newPlaybackRate = 0.25;
+	video.playbackRate = newPlaybackRate;
+	speedBtn.textContent = `${newPlaybackRate}x`;
 }
 
 // Captions
