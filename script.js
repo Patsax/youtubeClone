@@ -3,6 +3,8 @@ const miniPlayerBtn = document.querySelector(".mini-player-btn");
 const theaterBtn = document.querySelector(".theater-btn");
 const fullScreenBtn = document.querySelector(".full-screen-btn");
 const muteBtn = document.querySelector(".mute-btn");
+const currentTimeElem = document.querySelector(".current-time");
+const totalTimeElem = document.querySelector(".total-time");
 const volumeSlider = document.querySelector(".volume-slider");
 const videoContainer = document.querySelector(".video-container");
 const video = document.querySelector("video");
@@ -30,8 +32,45 @@ document.addEventListener("keydown", (e) => {
 		case "m":
 			toggleMute();
 			break;
+		case "arrowleft":
+		case "j":
+			skip(-5);
+			break;
+		case "arrowright":
+		case "l":
+			skip(5);
+			break;
 	}
 });
+
+// Time indications
+video.addEventListener("loadeddata", () => {
+	totalTimeElem.textContent = formatDuration(video.duration);
+});
+
+video.addEventListener("timeupdate", () => {
+	currentTimeElem.textContent = formatDuration(video.currentTime);
+});
+
+const leadingZeroFormatter = new Intl.NumberFormat(undefined, {
+	minimumIntegerDigits: 2,
+});
+function formatDuration(time) {
+	const seconds = Math.floor(time % 60);
+	const minutes = Math.floor(time / 60) % 60;
+	const hours = Math.floor(time / 3600);
+	if (hours === 0) {
+		return `${minutes}:${leadingZeroFormatter.format(seconds)}`;
+	} else {
+		return `${hours}:${leadingZeroFormatter.format(
+			minutes
+		)}:${leadingZeroFormatter.format(seconds)}`;
+	}
+}
+
+function skip(duration) {
+	video.currentTime += duration
+}
 
 // Volume control
 muteBtn.addEventListener("click", toggleMute);
