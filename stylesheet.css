@@ -164,21 +164,21 @@ video {
 
 .timeline-container {
 	height: 7px;
-	margin-inline: .5rem;
+	margin-inline: 0.5rem;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
 }
 
 .timeline {
-	background-color: rgba(100, 100, 100, .5);
+	background-color: rgba(100, 100, 100, 0.5);
 	height: 3px;
 	width: 100%;
 	position: relative;
 }
 
 .timeline::before {
-	content: '';
+	content: "";
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -189,7 +189,7 @@ video {
 }
 
 .timeline::after {
-	content: '';
+	content: "";
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -218,7 +218,7 @@ video {
 	top: -1rem;
 	transform: translate(-50%, -100%);
 	left: calc(var(--preview-position) * 100%);
-	border-radius: .25rem;
+	border-radius: 0.25rem;
 	border: 2px solid white;
 	display: none;
 }
